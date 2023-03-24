@@ -2,23 +2,27 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-random_walk = [0]
-for x in range(100):
+all_walks = []
 
-    step = random_walk[-1]
-    dice = np.random.randint(1, 7)
+for i in range(10):
 
-    if dice <= 2:
-        step = max(0, step - 1)
-    elif dice <= 5:
-        step = step + 1
-    else:
-        step = step + np.random.randint(1, 7)
+    # Code from before
+    random_walk = [0]
+    for x in range(100):
+        step = random_walk[-1]
+        dice = np.random.randint(1, 7)
 
-    random_walk.append(step)
+        if dice <= 2:
+            step = max(0, step - 1)
+        elif dice <= 5:
+            step = step + 1
+        else:
+            step = step + np.random.randint(1, 7)
+        random_walk.append(step)
 
-print(random_walk)
+    all_walks.append(random_walk)
 
+print(all_walks)
 
-plt.plot(random_walk)
+plt.plot(all_walks)
 plt.show()
